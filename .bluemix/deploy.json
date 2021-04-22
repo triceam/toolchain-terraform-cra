@@ -16,8 +16,7 @@
         }
     },
     "required": [
-        "api-key",
-        "workspace-id"
+        "api-key"
     ],
     "form": [{
             "type": "validator",
