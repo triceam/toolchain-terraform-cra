@@ -1,22 +1,15 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "messages": {
-        // "$i18n": "locales.yml"
     },
-    "title": {
-        "$ref": "#/messages/deploy.title"
-    },
-    "description": {
-        "$ref": "#/messages/deploy.description"
-    },
-    "longDescription": {
-        "$ref": "#/messages/deploy.longDescription"
-    },
+    "title":  "Terraform CRA Scan",
+    "description": "Scan a terraform template with IBM Code Risk Analyzer",
+    "longDescription": "description goes here",
     "type": "object",
     "properties": {
         "api-key": {
             "description": {
-                "$ref": "#/messages/deploy.apikey"
+                "$ref": "IBM Cloud API Key"
             },
             "type": "string",
             "validator": {
