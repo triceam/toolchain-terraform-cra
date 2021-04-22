@@ -25,8 +25,7 @@ toolchain:
   name: "schematics-pipeline-{{timestamp}}"
 services:
   devops-insights:
-    service_id: >
-      $env.env_id !== 'ibm:ys1:us-south' ? 'draservicebroker' : ''
+    service_id: "draservicebroker"
   orion:
     service_id: orion
   terraform-template:
@@ -38,7 +37,7 @@ services:
         $env.terraform_repo ? $env.terraform_repo : ""
       source_repo_url: >
         $env.terraform_repo ? $env.terraform_repo : ""
-      type: $env.type || 'existing'
+      type: $env.type || 'link'
       has_issues: true
       enable_traceability: true
       legal: true
