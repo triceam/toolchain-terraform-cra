@@ -8,9 +8,9 @@ template:
   info:
     #original static git url and branch string definitions
     #git url: >-
-    #  [https://github.com/open-toolchain/schematics-toolchain](https://github.com/open-toolchain/schematics-toolchain)
+    #  [https://github.com/cloud-native-toolkit/toolchain-terraform-cra](https://github.com/cloud-native-toolkit/toolchain-terraform-cra)
     #git branch: >-
-    #  [master](https://github.com/open-toolchain/schematics-toolchain/tree/master)
+    #  [master](https://github.com/cloud-native-toolkit/toolchain-terraform-cra/tree/master)
 
     # compute the git url and branch values dynamically so that they remain correct when repo is forked etc.
     # note: `repository` url param must always be provided while the `branch` url param is optional
