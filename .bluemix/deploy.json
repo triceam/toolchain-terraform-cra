@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title":  "Terraform CRA Scan",
+    "description": "Scan a terraform template with IBM Code Risk Analyzer",
+    "longDescription": "description goes here",
+    "type": "object",
+    "properties": {
+        "api-key": {
+            "description": "IBM Cloud API Key",
+            "type": "string",
+            "validator": {
+                "v-type": "api-key"
+            }
+        }
+    },
+    "required": [
+        "api-key"
+    ],
+    "form": [{
+            "type": "validator",
+            "url": "/devops/validator/validator-v1.html"
+        },
+        {
+            "type": "password",
+            "readonly": false,
+            "title": "IBM Cloud API Key",
+            "key": "api-key"
+        }
+    ]
+}
