@@ -4,7 +4,6 @@ template:
   description: "Analyze a Terraform repo with Code Risk Analyzer"
   required:
     - terraform-template
-    # - tekton-cra-pipeline
   info:
     #original static git url and branch string definitions
     #git url: >-
