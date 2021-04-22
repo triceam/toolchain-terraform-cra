@@ -4,9 +4,6 @@ kind: Pipeline
 metadata:
   name: deploy-pipeline
 spec:
-  params:
-    - name: WORKSPACE_ID
-      description: workspace id
   workspaces:
     - name: artifacts
   tasks:

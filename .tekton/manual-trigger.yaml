@@ -79,8 +79,6 @@ spec:
             value: $(params.commit-timestamp)
           - name: pipeline-debug
             value: $(params.pipeline-debug)
-          - name: WORKSPACE_ID
-            value: $(params.WORKSPACE_ID)
           - name: pr-url
             value: $(params.pr-url)
           - name: target-commit-id
