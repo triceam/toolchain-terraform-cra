@@ -1,5 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
+    "messages": {
+    },
     "title":  "Terraform CRA Scan",
     "description": "Scan a terraform template with IBM Code Risk Analyzer",
     "longDescription": "description goes here",
