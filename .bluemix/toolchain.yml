@@ -4,7 +4,7 @@ template:
   description: "Prototype toolchain templates for IBM Cloud Schematics "
   required:
     - terraform-template
-    - tekton-deploy-pipeline
+    - tekton-cra-pipeline
   info:
     #original static git url and branch string definitions
     #git url: >-
@@ -65,7 +65,7 @@ services:
       enable_traceability: false
       legal: true
       kind: ["pipeline"]
-  tekton-pipeline:
+  tekton-cra-pipeline:
     parameters:
       label: cra-pipeline
       type: tekton
