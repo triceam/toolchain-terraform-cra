@@ -8,9 +8,7 @@
     "type": "object",
     "properties": {
         "api-key": {
-            "description": {
-                "$ref": "IBM Cloud API Key"
-            },
+            "description": "IBM Cloud API Key",
             "type": "string",
             "validator": {
                 "v-type": "api-key"
@@ -28,9 +26,7 @@
         {
             "type": "password",
             "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.apikey"
-            },
+            "title": "IBM Cloud API Key",
             "key": "api-key"
         }
     ]
