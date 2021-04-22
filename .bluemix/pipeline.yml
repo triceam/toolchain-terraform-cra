@@ -11,3 +11,15 @@ inputs:
     path: .tekton
     branch: master
     service: ${cra-catalog}
+  - type: git
+    path: cra
+    branch: master
+    service: ${tekton-catalog}
+  - type: git
+    path: git
+    branch: master
+    service: ${tekton-catalog}
+  - type: git
+    path: toolchain
+    branch: master
+    service: ${tekton-catalog}
