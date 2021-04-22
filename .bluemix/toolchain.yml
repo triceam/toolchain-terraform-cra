@@ -64,24 +64,24 @@ services:
       enable_traceability: false
       legal: true
       kind: ["pipeline"]
-  tekton-cra-pipeline:
-    parameters:
-      label: cra-pipeline
-      type: tekton
-      name: "execute CRA"
-      ui_pipeline: true
-      configuration:
-        env:
-          terraform-template: terraform-template
-          tekton-catalog: tekton-catalog
-          API_KEY: "{{form.pipeline.parameters.api-key}}"
-        content:
-          $text: pipeline.yml
-      services:
-        - terraform-template
-        - tekton-catalog
-        - cra-catalog
-    service_id: "pipeline"
+  # tekton-cra-pipeline:
+  #   parameters:
+  #     label: cra-pipeline
+  #     type: tekton
+  #     name: "execute CRA"
+  #     ui_pipeline: true
+  #     configuration:
+  #       env:
+  #         terraform-template: terraform-template
+  #         tekton-catalog: tekton-catalog
+  #         API_KEY: "{{form.pipeline.parameters.api-key}}"
+  #       content:
+  #         $text: pipeline.yml
+  #     services:
+  #       - terraform-template
+  #       - tekton-catalog
+  #       - cra-catalog
+  #   service_id: "pipeline"
 form:
   pipeline:
     parameters:
