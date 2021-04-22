@@ -24,10 +24,10 @@ template:
 toolchain:
   name: "cra-pipeline-{{timestamp}}"
 services:
-  devops-insights:
-    service_id: "draservicebroker"
-  orion:
-    service_id: orion
+  # devops-insights:
+  #   service_id: "draservicebroker"
+  # orion:
+  #   service_id: orion
   terraform-template:
     service_id: >
       $env.source_provider ? $env.source_provider : 'githubconsolidated'
