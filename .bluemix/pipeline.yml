@@ -9,7 +9,8 @@ triggers:
 inputs:
   - type: git
     path: .tekton
-    branch: master
+    #branch: master
+    branch: initial-revision
     service: ${cra-catalog}
   - type: git
     path: cra
