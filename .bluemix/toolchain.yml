@@ -91,48 +91,8 @@ services:
       services:
         - terraform-template
         - tekton-catalog
+        - cra-pipeline
     service_id: "pipeline"
-  # tekton-deploy-pipeline:
-  #   parameters:
-  #     label: schematics-pipeline
-  #     type: tekton
-  #     name: schematics-deploy
-  #     ui_pipeline: true
-  #     configuration:
-  #       env:
-  #         terraform-template: terraform-template
-  #         schematics-pipeline: schematics-pipeline
-  #         tekton-catalog: tekton-catalog
-  #         API_KEY: "{{form.pipeline.parameters.api-key}}"
-  #         WORKSPACE_ID: "{{form.pipeline.parameters.workspace-id}}"
-  #         event-ci-listener-name: >
-  #           if ( $env.source_provider === 'githubconsolidated' ) {
-  #             'github-ci-listener';
-  #           } else if ( $env.source_provider === 'bitbucketgit' ) {
-  #             'bitbucket-ci-listener';
-  #           } else if ( $env.source_provider === 'github_integrated' ) {
-  #             'github-ent-ci-listener';
-  #           } else {
-  #             'gitlab-ci-listener';
-  #           }
-  #       content:
-  #         $text: pipeline-deploy.yml
-  #     services:
-  #       - terraform-template
-  #       - schematics-pipeline
-  #       - tekton-catalog
-  #   service_id: pipeline
-  # schematics:
-  #   service_id: customtool
-  #   parameters:
-  #     type: Schematics
-  #     lifecyclePhase: "MANAGE"
-  #     imageUrl: "https://cloud.ibm.com/schematics/img/schematics-icon-f5c6503990.svg"
-  #     documentationUrl: "https://cloud.ibm.com/docs/schematics?topic=schematics-about-schematics"
-  #     name: "IBM Cloud Schematics workspace"
-  #     dashboard_url: "/schematics/workspaces/{{form.pipeline.parameters.workspace-id}}"
-  #     description: "Terraform-as-a-Service"
-  #     additional-properties:  
 form:
   pipeline:
     parameters:
