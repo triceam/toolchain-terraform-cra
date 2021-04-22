@@ -33,7 +33,7 @@ services:
       source_repo_url: >
         $env.terraform_repo ? $env.terraform_repo : ''
       type: $env.type || 'link'
-      has_issues: true
+      has_issues: false
       enable_traceability: true
       legal: true
 form:

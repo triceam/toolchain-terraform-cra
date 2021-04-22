@@ -10,4 +10,3 @@ inputs:
   - type: git
     path: .tekton
     branch: master
-    service: ${cra-catalog}
