@@ -41,11 +41,11 @@ services:
       has_issues: true
       enable_traceability: true
       legal: true
-  cra-pipeline:
+  cra-catalog:
     service_id: >
       $env.source_provider ? $env.source_provider : 'hostedgit'
     parameters:
-      repo_name: "cra-pipeline"
+      repo_name: "cra-pipeline-{{timestamp}}"
       repo_url: "https://github.com/cloud-native-toolkit/toolchain-terraform-cra"
       source_repo_url: "https://github.com/cloud-native-toolkit/toolchain-terraform-cra"
       type: "clone"
@@ -68,7 +68,7 @@ services:
     parameters:
       label: cra-pipeline
       type: tekton
-      name: schematics-pr
+      name: "execute CRA"
       ui_pipeline: true
       configuration:
         env:
@@ -90,7 +90,7 @@ services:
       services:
         - terraform-template
         - tekton-catalog
-        - cra-pipeline
+        - cra-catalog
     service_id: "pipeline"
 form:
   pipeline:
