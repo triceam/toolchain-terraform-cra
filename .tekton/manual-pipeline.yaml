@@ -105,9 +105,9 @@ spec:
         - name: repository
           value: $(tasks.extract-repository-url.results.extracted-value)
         - name: revision
-          value: $(params.branch)
+          value: $(tasks.cra-fetch-repo.results.git-branch)
         - name: commit-id
-          value: $(params.commit-id)
+          value: $(tasks.cra-fetch-repo.results.git-commit)
         - name: scm-type
           value: $(params.scm-type)
         - name: project-id
@@ -129,9 +129,9 @@ spec:
         - name: repository
           value: $(tasks.extract-repository-url.results.extracted-value)
         - name: revision
-          value: $(params.branch)
+          value: $(tasks.cra-fetch-repo.results.git-branch)
         - name: commit-id
-          value: $(params.commit-id)
+          value: $(tasks.cra-fetch-repo.results.git-commit)
         - name: directory-name
           value: ""
         - name: scm-type
@@ -155,9 +155,9 @@ spec:
         - name: repository
           value: $(tasks.extract-repository-url.results.extracted-value)
         - name: revision
-          value: $(params.branch)
+          value: $(tasks.cra-fetch-repo.results.git-branch)
         - name: commit-id
-          value: $(params.commit-id)
+          value: $(tasks.cra-fetch-repo.results.git-commit)
         - name: scm-type
           value: $(params.scm-type)
         - name: project-id
@@ -166,10 +166,10 @@ spec:
           value: $(params.pipeline-debug)
 
     - name: cra-terraform-scan
-      when:
-        - input: "$(params.tf-dir)"
-          operator: notin
-          values: [""]
+      # when:
+      #   - input: "$(params.tf-dir)"
+      #     operator: notin
+      #     values: [""]
       runAfter:
         - cra-fetch-repo
       taskRef:
@@ -183,7 +183,7 @@ spec:
         - name: repository
           value: $(tasks.extract-repository-url.results.extracted-value)
         - name: branch
-          value: $(params.branch)
+          value: $(tasks.cra-fetch-repo.results.git-branch)
         - name: scm-type
           value: $(params.scm-type)
         - name: project-id
