@@ -81,9 +81,9 @@ spec:
         - name: repository
           value: $(tasks.extract-repository-url.results.extracted-value)
         - name: revision
-          value: $(tasks.extract-repository-url.results.git-branch.path)
+          value: $(tasks.cra-fetch-repo.results.git-branch.path)
         - name: commit-id
-          value: $(tasks.extract-repository-url.results.git-commit.path)
+          value: $(tasks.cra-fetch-repo.results.git-commit.path)
         - name: pipeline-debug
           value: $(params.pipeline-debug)
         - name: directory-name
