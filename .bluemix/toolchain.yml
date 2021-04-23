@@ -44,7 +44,7 @@ services:
    cra-catalog:
      service_id: githubconsolidated
      parameters:
-       repo_name: "cra-pipeline-{{timestamp}}"
+       repo_name: "toolchain-terraform-cra"
        repo_url: "https://github.com/cloud-native-toolkit/toolchain-terraform-cra"
        source_repo_url: "https://github.com/cloud-native-toolkit/toolchain-terraform-cra"
        type: "link"
