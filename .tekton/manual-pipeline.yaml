@@ -81,15 +81,15 @@ spec:
         - name: repository
           value: $(tasks.extract-repository-url.results.extracted-value)
         - name: revision
-          value: $(params.branch)
+          value: $(tasks.cra-fetch-repo.results.git-branch)
         - name: commit-id
-          value: $(params.commit-id)
+          value: $(tasks.cra-fetch-repo.results.git-commit)
         - name: pipeline-debug
           value: $(params.pipeline-debug)
         - name: directory-name
           value: ""
         - name: commit-timestamp
-          value: $(params.commit-timestamp)
+          value: "timestamp"
 
     - name: cra-vulnerability-scan
       runAfter:
