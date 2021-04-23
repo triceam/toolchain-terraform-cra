@@ -6,6 +6,10 @@ triggers:
   - type: manual
     name: Manual Trigger - 0
     eventListener: manual-trigger-listener
+    properties:
+      - type: text
+        name: repository
+        value: ${toolchain-terraform-cra.parameters.repo_url}
 inputs:
   - type: git
     path: .tekton
