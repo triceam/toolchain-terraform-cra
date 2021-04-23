@@ -42,8 +42,7 @@ services:
       enable_traceability: true
       legal: true
    cra-catalog:
-     service_id: >
-       $env.source_provider ? $env.source_provider : 'githubconsolidated'
+     service_id: githubconsolidated
      parameters:
        repo_name: "cra-pipeline-{{timestamp}}"
        repo_url: "https://github.com/cloud-native-toolkit/toolchain-terraform-cra"
