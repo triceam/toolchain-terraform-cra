@@ -73,6 +73,7 @@ services:
          env:
            terraform-template: terraform-template
            tekton-catalog: tekton-catalog
+           toolchain-terraform-cra: toolchain-terraform-cra
            API_KEY: "{{form.pipeline.parameters.api-key}}"
          content:
            $text: pipeline.yml
