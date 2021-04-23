@@ -41,7 +41,7 @@ services:
       has_issues: true
       enable_traceability: true
       legal: true
-   cra-catalog:
+   toolchain-terraform-cra:
      service_id: githubconsolidated
      parameters:
        repo_name: "toolchain-terraform-cra"
@@ -79,7 +79,7 @@ services:
        services:
          - terraform-template
          - tekton-catalog
-         - cra-catalog
+         - toolchain-terraform-cra
      service_id: "pipeline"
 form:
   pipeline:
