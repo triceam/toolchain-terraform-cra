@@ -7,7 +7,6 @@ spec:
   params:
     - name: repository
       description: the git repo
-      default: ""
     - name: branch
       description: branch
       default: "main"
