@@ -1,0 +1,25 @@
+properties:
+  - type: secure
+    name: apikey
+    value: ${API_KEY}
+triggers:
+  - type: manual
+    name: Manual Trigger - 0
+    eventListener: manual-trigger-listener
+inputs:
+  - type: git
+    path: .tekton
+    branch: master
+    service: ${cra-catalog}
+  - type: git
+    path: cra
+    branch: master
+    service: ${tekton-catalog}
+  - type: git
+    path: git
+    branch: master
+    service: ${tekton-catalog}
+  - type: git
+    path: toolchain
+    branch: master
+    service: ${tekton-catalog}
