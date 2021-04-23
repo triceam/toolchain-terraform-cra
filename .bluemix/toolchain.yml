@@ -75,6 +75,7 @@ services:
            tekton-catalog: tekton-catalog
            toolchain-terraform-cra: toolchain-terraform-cra
            API_KEY: "{{form.pipeline.parameters.api-key}}"
+           REPOSITORY: '{{services.terraform-template.parameters.repo_url}}'
          content:
            $text: pipeline.yml
        services:
