@@ -16,8 +16,6 @@ spec:
         - name: secrets
           workspace: artifacts
       params:
-        - name: repository
-          value: $(tasks.extract-repository-url.results.extracted-value)
         - name: branch
           value: $(params.branch)
         - name: scm-type
