@@ -7,17 +7,22 @@ spec:
   params:
     - name: repository
       description: the git repo
+      default: ""
     - name: branch
       description: branch
+      default: "main"
     - name: revision
       description: the git revision/commit for the git repo
       default: ""
     - name: commit-id
       description: commit id
+      default: ""
     - name: commit-timestamp
       description: commit timestamp
+      default: ""
     - name: pipeline-debug
       description: toggles debug mode for the pipeline
+      default: true
     - name: project-id
       description: project id
       default: ""
