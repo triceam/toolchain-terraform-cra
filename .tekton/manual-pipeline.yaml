@@ -22,7 +22,7 @@ spec:
       default: ""
     - name: pipeline-debug
       description: toggles debug mode for the pipeline
-      default: true
+      default: "true"
     - name: project-id
       description: project id
       default: ""
