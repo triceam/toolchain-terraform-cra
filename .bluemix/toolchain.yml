@@ -1,0 +1,90 @@
+version: 2
+template:
+  name: "Terraform CRA Toolchain"
+  description: "Analyze a Terraform repo with Code Risk Analyzer"
+  required:
+    - terraform-template
+    - tekton-cra-pipeline
+  info:
+    # original static git url and branch string definitions
+    # git url: >-
+    #   [https://github.com/cloud-native-toolkit/toolchain-terraform-cra](https://github.com/cloud-native-toolkit/toolchain-terraform-cra)
+    # git branch: >-
+    #   [master](https://github.com/cloud-native-toolkit/toolchain-terraform-cra/tree/master)
+
+    #  compute the git url and branch values dynamically so that they remain correct when repo is forked etc.
+    #  note: `repository` url param must always be provided while the `branch` url param is optional
+    #  the computed urls are of the same format as the original static urls shown above
+    git url: >
+      '[' + $env.repository + '](' + $env.repository + ')'
+    git branch: >
+      $env.branch ?
+        '[' + $env.branch + ']('+ $env.repository + '/tree/' + $env.branch + ')' :
+        '[master]('+ $env.repository + '/tree/master)'
+toolchain:
+  name: "cra-pipeline-{{timestamp}}"
+services:
+   devops-insights:
+     service_id: "draservicebroker"
+   orion:
+     service_id: orion
+   terraform-template:
+    service_id: >
+      $env.source_provider ? $env.source_provider : 'githubconsolidated'
+    parameters:
+      repo_name: "terraform-template-{{timestamp}}"
+      repo_url: >
+        $env.terraform_repo ? $env.terraform_repo : ''
+      source_repo_url: >
+        $env.terraform_repo ? $env.terraform_repo : ''
+      type: $env.type || 'link'
+      has_issues: true
+      enable_traceability: true
+      legal: true
+   cra-catalog:
+     service_id: >
+       $env.source_provider ? $env.source_provider : 'hostedgit'
+     parameters:
+       repo_name: "cra-pipeline-{{timestamp}}"
+       repo_url: "https://github.com/cloud-native-toolkit/toolchain-terraform-cra"
+       source_repo_url: "https://github.com/cloud-native-toolkit/toolchain-terraform-cra"
+       type: "clone"
+       has_issues: false
+       enable_traceability: false
+       legal: true
+       kind: ["pipeline"]
+   tekton-catalog:
+     service_id: githubconsolidated
+     parameters:
+       repo_name: "tekton-catalog"
+       repo_url: "https://github.com/open-toolchain/tekton-catalog"
+       source_repo_url: "https://github.com/open-toolchain/tekton-catalog"
+       type: "link"
+       has_issues: false
+       enable_traceability: false
+       legal: true
+       kind: ["pipeline"]
+   tekton-cra-pipeline:
+     parameters:
+       label: cra-pipeline
+       type: tekton
+       name: "execute CRA"
+       ui_pipeline: true
+       configuration:
+         env:
+           terraform-template: terraform-template
+           tekton-catalog: tekton-catalog
+           API_KEY: "{{form.pipeline.parameters.api-key}}"
+         content:
+           $text: pipeline.yml
+       services:
+         - terraform-template
+         - tekton-catalog
+         - cra-catalog
+     service_id: "pipeline"
+form:
+  pipeline:
+    parameters:
+      api-key: "{{apiKey}}"
+    schema:
+      $ref: deploy.json
