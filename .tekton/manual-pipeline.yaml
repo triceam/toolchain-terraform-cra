@@ -209,4 +209,4 @@ spec:
         - name: repository
           value: $(tasks.extract-repository-url.results.extracted-value)
         - name: evidence-store
-          value: $(params.cra-terraform-scan.results.evidence-store)
+          value: $(tasks.cra-terraform-scan.results.evidence-store)
