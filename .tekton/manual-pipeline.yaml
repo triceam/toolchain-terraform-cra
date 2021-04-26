@@ -21,7 +21,7 @@ spec:
       default: ""
     - name: pipeline-debug
       description: toggles debug mode for the pipeline
-      default: "1"
+      default: "0"
     - name: project-id
       description: project id
       default: ""
@@ -166,10 +166,6 @@ spec:
           value: $(params.pipeline-debug)
 
     - name: cra-terraform-scan
-      # when:
-      #   - input: "$(params.tf-dir)"
-      #     operator: notin
-      #     values: [""]
       runAfter:
         - cra-fetch-repo
       taskRef:
