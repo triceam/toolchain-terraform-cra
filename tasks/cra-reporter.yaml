@@ -1,0 +1,26 @@
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: cra-comm-editor
+spec:
+  params:
+    - name: repository
+      description: the git repo url
+    - name: evidence-store
+      description: comments filepath
+  steps:
+    - name: comm-editor
+      image: icr.io/continuous-delivery/cra-comm-editor:release.1519
+      imagePullPolicy: Always
+      workingDir: "/artifacts"
+      command: ["/bin/sh", "-c"]
+      args:
+        - |
+          #!/bin/sh
+          source /steps/next-step-env.properties
+          
+          ls -la "$(params.evidence-store)"
+  workspaces:
+    - name: artifacts
+      mountPath: /artifacts
