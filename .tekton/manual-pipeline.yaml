@@ -203,6 +203,8 @@ spec:
       workspaces:
         - name: artifacts
           workspace: artifacts
+        - name: secrets
+          workspace: artifacts
       params:
         - name: repository
           value: $(tasks.extract-repository-url.results.extracted-value)
