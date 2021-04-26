@@ -19,7 +19,7 @@ spec:
         - |
           #!/bin/sh
           
-          ls -la "$(params.evidence-store)"
+          ls -laR "$(params.evidence-store)"
   workspaces:
     - name: artifacts
       mountPath: /artifacts
