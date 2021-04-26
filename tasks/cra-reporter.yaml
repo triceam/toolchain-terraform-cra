@@ -22,6 +22,7 @@ spec:
           ls -laR
           #ls -laR "$(params.evidence-store)"
 
+      volumeMounts:
         - mountPath: /config
           name: cd-config-volume
         - mountPath: /steps
