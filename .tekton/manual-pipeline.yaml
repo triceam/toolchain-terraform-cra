@@ -194,3 +194,19 @@ spec:
           value: $(params.policy-config-json)
         - name: tf-var-file
           value: $(params.tf-var-file)
+
+    - name: cra-reporter
+      runAfter:
+        - cra-terraform-scan
+      taskRef:
+        name: cra-reporter
+      workspaces:
+        - name: artifacts
+          workspace: artifacts
+        - name: secrets
+          workspace: artifacts
+      params:
+        - name: repository
+          value: $(tasks.extract-repository-url.results.extracted-value)
+        - name: evidence-store
+          value: $(params.cra-terraform-scan.results.evidence-store)

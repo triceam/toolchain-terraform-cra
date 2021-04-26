@@ -18,6 +18,10 @@ inputs:
     branch: main
     service: ${toolchain-terraform-cra}
   - type: git
+    path: tasks
+    branch: main
+    service: ${toolchain-terraform-cra}
+  - type: git
     path: cra
     branch: master
     service: ${tekton-catalog}
