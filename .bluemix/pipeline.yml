@@ -9,6 +9,9 @@ triggers:
   - type: manual
     name: Manual Trigger - 0
     eventListener: manual-trigger-listener
+  - type: generic
+    name: Generic Trigger - 0
+    eventListener: manual-trigger-listener
 inputs:
   - type: git
     path: .tekton
