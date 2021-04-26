@@ -2,7 +2,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: cra-comm-editor
+  name: cra-reporter
 spec:
   params:
     - name: repository
