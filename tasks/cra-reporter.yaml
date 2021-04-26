@@ -11,7 +11,7 @@ spec:
       description: comments filepath
   steps:
     - name: cra-reporter
-      image: alpine
+      image: icr.io/continuous-delivery/cra-terraform:latest
       imagePullPolicy: Always
       workingDir: "/artifacts"
       command: ["/bin/sh", "-c"]
@@ -22,7 +22,8 @@ spec:
           ls -laR
           #ls -laR "$(params.evidence-store)"
 
-      volumeMounts:
+        - mountPath: /config
+          name: cd-config-volume
         - mountPath: /steps
           name: steps-volume
 
