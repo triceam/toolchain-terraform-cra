@@ -18,7 +18,6 @@ spec:
       args:
         - |
           #!/bin/sh
-          source /steps/next-step-env.properties
           
           ls -la "$(params.evidence-store)"
   workspaces:
