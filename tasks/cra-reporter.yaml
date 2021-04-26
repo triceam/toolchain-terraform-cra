@@ -10,8 +10,8 @@ spec:
     - name: evidence-store
       description: comments filepath
   steps:
-    - name: comm-editor
-      image: icr.io/continuous-delivery/cra-comm-editor:release.1519
+    - name: cra-reporter
+      image: alpine
       imagePullPolicy: Always
       workingDir: "/artifacts"
       command: ["/bin/sh", "-c"]
