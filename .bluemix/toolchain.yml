@@ -67,7 +67,7 @@ services:
      parameters:
        label: cra-pipeline
        type: tekton
-       name: "execute CRA"
+       name: "pr-cra-pipeline"
        ui_pipeline: true
        configuration:
          env:
@@ -76,6 +76,16 @@ services:
            toolchain-terraform-cra: toolchain-terraform-cra
            API_KEY: "{{form.pipeline.parameters.api-key}}"
            REPOSITORY: '{{services.terraform-template.parameters.repo_url}}'
+           event-listener-name: >
+            if ( $env.source_provider === 'githubconsolidated' ) {
+              'github-pr-listener';
+            } else if ( $env.source_provider === 'bitbucketgit' ) {
+              'bitbucket-pr-listener';
+            } else if ( $env.source_provider === 'github_integrated' ) {
+              'github-ent-pr-listener';
+            } else {
+              'gitlab-pr-listener';
+            }
          content:
            $text: pipeline.yml
        services:
