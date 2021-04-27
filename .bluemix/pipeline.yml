@@ -21,7 +21,7 @@ inputs:
   - type: git
     path: .tekton
     branch: main
-    service: ${schematics-pipeline}
+    service: ${toolchain-terraform-cra}
   - type: git
     path: cra
     branch: master

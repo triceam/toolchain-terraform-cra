@@ -76,7 +76,7 @@ services:
            toolchain-terraform-cra: toolchain-terraform-cra
            API_KEY: "{{form.pipeline.parameters.api-key}}"
            REPOSITORY: '{{services.terraform-template.parameters.repo_url}}'
-           event-listener-name: 'githubconsolidated'
+           event-listener-name: 'github-pr-listener'
           #  event-listener-name: >
           #   if ( $env.source_provider === 'githubconsolidated' ) {
           #     'github-pr-listener';
