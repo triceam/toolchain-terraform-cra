@@ -4,7 +4,7 @@ properties:
     value: ${API_KEY}
 triggers:
   - type: git
-    branch: master
+    branch: main
     events:
       pull_request: true
     name: Git Trigger - PR
