@@ -45,8 +45,8 @@ services:
      service_id: githubconsolidated
      parameters:
        repo_name: "toolchain-terraform-cra"
-       repo_url: "https://github.com/cloud-native-toolkit/toolchain-terraform-cra"
-       source_repo_url: "https://github.com/cloud-native-toolkit/toolchain-terraform-cra"
+       repo_url: "https://github.com/triceam/toolchain-terraform-cra"
+       source_repo_url: "https://github.com/triceam/toolchain-terraform-cra"
        type: "link"
        has_issues: false
        enable_traceability: false
