@@ -9,9 +9,10 @@ spec:
       description: the git repo url
     - name: evidence-store
       description: comments filepath
+
   steps:
     - name: cra-reporter
-      image: icr.io/continuous-delivery/cra-terraform:latest
+      image: icr.io/continuous-delivery/cra-comm-editor:release.1519
       imagePullPolicy: Always
       workingDir: "/artifacts"
       command: ["/bin/sh", "-c"]
@@ -21,28 +22,6 @@ spec:
           
           ls -laR
           #ls -laR "$(params.evidence-store)"
-
-      volumeMounts:
-        - mountPath: /config
-          name: cd-config-volume
-        - mountPath: /steps
-          name: steps-volume
-
   workspaces:
     - name: artifacts
       mountPath: /artifacts
-    - name: secrets
-      mountPath: /secrets
-
-  volumes:
-    - name: steps-volume
-      emptyDir: {}
-    - name: secrets
-      secret:
-        secretName: $(params.continuous-delivery-context-secret)
-    - name: cd-config-volume
-      configMap:
-        name: toolchain
-        items:
-          - key: toolchain.json
-            path: toolchain.json
