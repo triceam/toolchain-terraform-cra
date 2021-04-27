@@ -6,12 +6,19 @@ properties:
     name: repository
     value: ${REPOSITORY}
 triggers:
-  - type: manual
-    name: Manual Trigger - 0
-    eventListener: manual-trigger-listener
-  - type: generic
-    name: Generic Trigger - 0
-    eventListener: manual-trigger-listener
+  - type: git
+    branch: master
+    events:
+      pull_request: true
+    name: Git Trigger - PR
+    eventListener: ${event-listener-name}
+    properties:
+      - type: secure
+        name: TF_VAR_ibmcloud_api_key
+        value: ${API_KEY}
+      - type: text
+        name: tf-dir
+        value: /
 inputs:
   - type: git
     path: .tekton
